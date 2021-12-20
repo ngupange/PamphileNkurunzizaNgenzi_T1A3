@@ -27,6 +27,7 @@ module ListMaker
         break if action == 'quit'
         result = do_action(action,args)
       end
+      system "clear"
       conclusion
     end
     

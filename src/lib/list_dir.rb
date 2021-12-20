@@ -70,10 +70,9 @@ module ListMaker
     end
     
     def add
+      system "clear"
       # Ask user to provide a new file name and create it
-      puts "Enter the filename you would like to use."
-      puts "Names should be lowercase with underscores."
-      puts "Example: Books.txt"
+      puts "\nEnter the file name"
       print "> "
       response = gets.chomp
       name = response.downcase.strip
