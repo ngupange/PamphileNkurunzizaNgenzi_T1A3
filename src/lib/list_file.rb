@@ -53,9 +53,11 @@ module ListMaker
       puts "Enter the new list item and hit return."
       print "> "
       new_item = gets.chomp
-      File.open(@filepath, 'a') do |file|
-        file << new_item
-        file << "\n" # Because we used #chomp above
+      if new_item !=""
+        File.open(@filepath, 'a') do |file|
+          file << new_item
+          file << "\n" # Because we used #chomp above
+        end
       end
       system "clear"
     end
@@ -88,7 +90,10 @@ module ListMaker
       lines[position-1] = new_item
       data = lines.join
       File.write(@filepath, data)
-      puts "List updated."
+      puts "\n List updated. \n"
+      print "Press Enter key to continue..."
+      gets
+      system "clear"
     end
     
   end

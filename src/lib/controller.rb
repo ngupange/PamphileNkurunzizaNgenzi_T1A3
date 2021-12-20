@@ -6,15 +6,13 @@ $prompt = TTY::Prompt.new
 
 module ListMaker
   class Controller
-
-    @@valid_actions = ['view', 'add', 'edit', 'load', 'quit']
     
     def initialize
       @list_dir = ListMaker::ListDir.new
     end
 
     def select_options
-      answer = $prompt.select("What do you want to do?", ['View contents', 'Add New Record', 'Edit File Content ', 'Load a File to Manipulate', 'Quit'])
+      answer = $prompt.select("What do you want to do?", ['View contents', 'Add New Record', 'Edit File Content ', 'Load Another File to Manipulate', 'Quit'])
     return answer
     end
 
@@ -58,12 +56,12 @@ module ListMaker
         if action == "edit"
           args = nil
           while args == nil         
-            system "clear"
+            # system "clear"
             lim = @con.fnbr.length
             puts "choose number from list"
             print "> "
             results = gets.chomp.to_i
-            if (results <= lim) && (results > 0)
+            if (results <= lim + 1) && (results > 0)
               args = results.to_s
               args = args.split()
             else
@@ -92,7 +90,6 @@ module ListMaker
           puts "\n \n"
         when 'load'
           system "clear"
-          # Use a different list file
           new_file = @list_dir.choose_list
           @list_file = ListMaker::ListFile.new(new_file)
           @list_file.view
