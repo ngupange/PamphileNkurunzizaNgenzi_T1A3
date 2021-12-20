@@ -37,7 +37,7 @@ module ListMaker
     
       def introduction
         puts "-" * 100
-        puts "Directories Maker".upcase.center(80)
+        puts "Directories Maker".upcase.center(80).colorize(:white).on_blue
         puts "-" * 100
         puts "This is an interactive program helps users to create and manage lists."
       end
