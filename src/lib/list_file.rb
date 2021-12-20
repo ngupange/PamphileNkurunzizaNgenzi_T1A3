@@ -32,6 +32,7 @@ module ListMaker
     end
     
     def view
+      puts "Contents of a List\n".upcase.center(60)
       # Read from list file
       # Use File.new/open in read mode
       # add numbers next to list items

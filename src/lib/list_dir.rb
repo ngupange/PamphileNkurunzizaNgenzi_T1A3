@@ -52,7 +52,6 @@ module ListMaker
         filename = @files[number-1]
       end
       system "clear"
-      puts "\n#{filename} List Content \n\n".upcase
       filename
     end
     
