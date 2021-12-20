@@ -1,5 +1,6 @@
 con = ListMaker::ListDir.new
-
+require "colorize"
+require 'colorized_string'
 
 module ListMaker
   class ListFile
@@ -14,17 +15,17 @@ module ListMaker
       if File.exists?(@filepath)
         # confirm that it is readable and writable
         if !File.readable?(@filepath)
-          abort("List file exists but is not readable.")
+          abort("List file exists but is not readable.").colorize(:color => :white, :background => :red)
         end
         if !File.writable?(@filepath)
-          abort("List file exists but is not writable.")
+          abort("List file exists but is not writable.").colorize(:color => :white, :background => :red)
         end
       else
         # or create a new file in APP_ROOT
         #   Use File.new/open in write mode
         File.open(@filepath, 'w')
         if !File.exists?(@filepath)
-          abort("List file does not exist and could not be created.")
+          abort("List file does not exist and could not be created.").colorize(:color => :white, :background => :red)
         end
       end
       # if success, return self, otherwise exit program
@@ -50,7 +51,7 @@ module ListMaker
       puts "\nAdd Item on the List \n\n".upcase
       # Add item to the end of the list.
       # Use File.new/open in append mode
-      puts "Enter the new list item and hit return."
+      puts "Enter the new list item and hit return.".colorize(:yellow)
       print "> "
       new_item = gets.chomp
       if new_item !=""
@@ -67,8 +68,8 @@ module ListMaker
       # get the item position from the args ("edit 3", "edit 7")
       position = args.first.to_i
       if position < 1
-        puts "Include the number of the item to edit."
-        puts "Example: edit 3"
+        puts "Include the number of the item to edit.".colorize(:yellow)
+        puts "Example: edit 3".colorize(:yellow)
         return
       end
       # read list file and make sure that item exists
@@ -76,13 +77,13 @@ module ListMaker
       # return not found message if item does not exist
       lines = File.readlines(@filepath)
       if lines[position-1].nil?
-        puts "Invalid item position."
+        puts "Invalid item position.".colorize(:color => :white, :background => :red)
         return
       end
       # output text of current list item again
       # ask user to type new text
-      puts "Enter the new text and hit return."
-      puts "#{position}: #{lines[position-1]}"
+      puts "Enter the new text and hit return.".colorize(:yellow)
+      puts "#{position}: #{lines[position-1]}".colorize(:yellow)
       print "> "
       new_item = gets.chomp
       if new_item !=""
@@ -92,7 +93,7 @@ module ListMaker
         data = lines.join
         File.write(@filepath, data)
       else
-        puts "\nYou have to type something"
+        puts "\nYou have to type something".colorize(:color => :white, :background => :red)
         gets
       end
       puts "\n List updated. "

@@ -1,3 +1,6 @@
+require "colorize"
+require 'colorized_string'
+
 module ListMaker
   class ListDir
     
@@ -16,17 +19,17 @@ module ListMaker
       if Dir.exists?(@dirpath)
         # confirm that it is readable and writable
         if !File.readable?(@dirpath)
-          abort("List directory exists but is not readable.")
+          abort("List directory exists but is not readable.").colorize(:color => :white, :background => :red)
         end
         if !File.writable?(@dirpath)
-          abort("List directory exists but is not writable.")
+          abort("List directory exists but is not writable.").colorize(:color => :white, :background => :red)
         end
       else
         # or create a new directory in APP_ROOT
         #   Use Dir.mkdir
         Dir.mkdir(@dirpath)
         if !Dir.exists?(@dirpath)
-          abort("List directory does not exist and could not be created.")
+          abort("List directory does not exist and could not be created.").colorize(:color => :white, :background => :red)
         end
       end
 
@@ -39,7 +42,7 @@ module ListMaker
     def choose_list
       # Display list of files with numbers
       puts "\nChoose list file\n\n".upcase
-      puts "Type a file number you want to view from the list or type 'ADD' to add a new file on the List"
+      puts "Type a file number you want to view from the list or type 'ADD' to add a new file on the List".colorize(:yellow)
       list
       print "> "
       response = gets.chomp
@@ -72,7 +75,7 @@ module ListMaker
     def add
       system "clear"
       # Ask user to provide a new file name and create it
-      puts "\nEnter the file name"
+      puts "\nEnter the file name".colorize(:yellow)
       print "> "
       response = gets.chomp
       name = response.downcase.strip

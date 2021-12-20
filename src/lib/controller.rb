@@ -1,5 +1,7 @@
 require_relative 'list_dir'
 require_relative 'list_file'
+require "colorize"
+require 'colorized_string'
 
 require "tty-prompt"
 $prompt = TTY::Prompt.new
@@ -59,14 +61,14 @@ module ListMaker
           while args == nil         
             # system "clear"
             lim = @con.fnbr.length
-            puts "choose number from list"
+            puts "choose number from list".colorize(:yellow)
             print "> "
             results = gets.chomp.to_i
             if (results <= lim + 1) && (results > 0)
               args = results.to_s
               args = args.split()
             else
-              puts "Wrong answer, please pick right list number"
+              puts "Wrong answer, please pick right list number".colorize(:color => :white, :background => :red)
             end
           end
         end
@@ -96,7 +98,7 @@ module ListMaker
           @list_file.view
           puts "\n \n"
         else
-          puts "\nI don't understand that command.\n\n"
+          puts "\nI don't understand that command.\n\n".colorize(:color => :white, :background => :red)
         end
       end
       
