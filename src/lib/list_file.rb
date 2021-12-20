@@ -47,7 +47,7 @@ module ListMaker
     end
     
     def add
-      puts "\nAdd a List Item\n\n".upcase
+      puts "\nAdd Item on the List \n\n".upcase
       # Add item to the end of the list.
       # Use File.new/open in append mode
       puts "Enter the new list item and hit return."
@@ -84,17 +84,21 @@ module ListMaker
       puts "Enter the new text and hit return."
       puts "#{position}: #{lines[position-1]}"
       print "> "
-      new_item = gets
-      # write list file with the new updated list
-      #   Use File.write
-      lines[position-1] = new_item
-      data = lines.join
-      File.write(@filepath, data)
-      puts "\n List updated. \n"
-      print "Press Enter key to continue..."
+      new_item = gets.chomp
+      if new_item !=""
+        # write list file with the new updated list
+        #   Use File.write
+        lines[position-1] = new_item
+        data = lines.join
+        File.write(@filepath, data)
+      else
+        puts "\nYou have to type something"
+        gets
+      end
+      puts "\n List updated. "
+      print "\n Press Enter key to continue..."
       gets
       system "clear"
     end
-    
   end
 end
