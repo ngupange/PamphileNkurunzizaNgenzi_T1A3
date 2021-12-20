@@ -41,7 +41,7 @@ module ListMaker
     
     def choose_list
       # Display list of files with numbers
-      puts "\nChoose list file\n\n".upcase
+      puts "\nChoose list file\n\n".upcase.colorize(:white).on_blue
       puts "Type a file number you want to view from the list or type 'ADD' to add a new file on the List".colorize(:yellow)
       list
       print "> "

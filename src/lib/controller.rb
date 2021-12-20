@@ -39,13 +39,13 @@ module ListMaker
         puts "-" * 100
         puts "Directories Maker".upcase.center(80).colorize(:white).on_blue
         puts "-" * 100
-        puts "This is an interactive program helps users to create and manage lists."
+        puts "This is an interactive program helps users to create and manage lists.".colorize(:white).on_light_magenta
       end
 
       def conclusion
         puts
         puts "-" * 100
-        puts "Goodbye!".upcase.center(80)
+        puts "Goodbye!".upcase.center(80).colorize(:white).on_blue
         puts "-" * 100
         puts
       end
@@ -92,7 +92,7 @@ module ListMaker
           @list_file.edit(args)
           puts "\n \n"
         when 'load'
-          system "clear"
+          # system "clear"
           new_file = @list_dir.choose_list
           @list_file = ListMaker::ListFile.new(new_file)
           @list_file.view

@@ -33,7 +33,7 @@ module ListMaker
     end
     
     def view
-      puts "Contents of a List\n".upcase.center(60)
+      puts "Contents of a List\n".upcase.center(60).colorize(:white).on_blue
       # Read from list file
       # Use File.new/open in read mode
       # add numbers next to list items
@@ -48,7 +48,7 @@ module ListMaker
     end
     
     def add
-      puts "\nAdd Item on the List \n\n".upcase
+      puts "\nAdd Item on the List \n\n".upcase.colorize(:white).on_blue
       # Add item to the end of the list.
       # Use File.new/open in append mode
       puts "Enter the new list item and hit return.".colorize(:yellow)
@@ -64,7 +64,7 @@ module ListMaker
     end
     
     def edit(args=[])
-      puts "\nEdit a List Item\n\n".upcase
+      puts "\nEdit a List Item\n\n".upcase.colorize(:white).on_blue
       # get the item position from the args ("edit 3", "edit 7")
       position = args.first.to_i
       if position < 1
