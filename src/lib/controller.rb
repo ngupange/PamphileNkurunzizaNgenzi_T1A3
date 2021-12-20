@@ -78,7 +78,6 @@ module ListMaker
         case action
         when 'view'
           system "clear"
-          print "#{@list_file} : "
           @list_file.view
           puts "\n \n"
         when 'add'
