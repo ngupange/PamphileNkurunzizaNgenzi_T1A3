@@ -2,7 +2,11 @@ require_relative 'list_dir'
 require_relative 'list_file'
 require "colorize"
 require 'colorized_string'
+require "tty-box"
+require "tty-font"
 
+$font = TTY::Font.new
+$box = TTY::Box.frame
 require "tty-prompt"
 $prompt = TTY::Prompt.new
 
@@ -17,10 +21,10 @@ module ListMaker
       answer = $prompt.select("What do you want to do?", ['View contents', 'Add New Record', 'Edit File Content ', 'Load Another File to Manipulate', 'Quit'])
     return answer
     end
-
+    
     def launch!
       introduction
-      
+
       do_action('load', [])
 
       # input/action loop
@@ -36,18 +40,16 @@ module ListMaker
     private
     
       def introduction
-        puts "-" * 100
-        puts "Directories Maker".upcase.center(80).colorize(:white).on_blue
-        puts "-" * 100
-        puts "This is an interactive program helps users to create and manage lists.".colorize(:white).on_light_magenta
+        boxi = $font.write("Directories    Maker".upcase)
+        $box = TTY::Box.frame boxi
+        puts $box
+        puts "This is an interactive program helps users to create and manage lists.".center(80).colorize(:white).on_light_magenta
       end
 
       def conclusion
-        puts
-        puts "-" * 100
-        puts "Goodbye!".upcase.center(80).colorize(:white).on_blue
-        puts "-" * 100
-        puts
+        boxi = $font.write("Goodbye!".upcase)
+        $box = TTY::Box.frame boxi
+        puts $box
       end
     
       def get_action
