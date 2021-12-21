@@ -33,7 +33,7 @@ module ListMaker
     end
     
     def view
-      puts "Contents of a List\n".upcase.center(60).colorize(:white).on_blue
+      puts "Contents of a List\n".upcase.colorize(:white).on_blue
       # Read from list file
       # Use File.new/open in read mode
       # add numbers next to list items
