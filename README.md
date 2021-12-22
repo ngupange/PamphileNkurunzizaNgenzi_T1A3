@@ -17,7 +17,7 @@ This terminal Ruby application is like a prototype or a blueprint that will help
 
 ## Purposes and solutions
 
-In this project a user with admin privillege will have options to create lists or directories of anything and save it into a file then user using terminal can view that list create new list visualise these lists, add new record and delete a record or edit it. Access issue is out of scope for this project.
+In this project a user with admin privilege will have options to create lists or directories of anything and save it into a file then user using terminal can view that list create new list visualise these lists, add new record and delete a record or edit it. Access issue is out of scope for this project.
 
 ## Target audience
 
