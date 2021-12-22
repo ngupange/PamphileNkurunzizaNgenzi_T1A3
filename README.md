@@ -2,6 +2,9 @@
 
 # School Directories Terminal App
 
+
+**GitHub Repository:** [Click here](https://github.com/ngupange/PamphileNkurunzizaNgenzi_T1A3)
+
 ## Statement of Purpose
 
 After the portfolio assignment I decided to start a project from scratch and apply on that project all skills I learn from this course . I chose a project that I will design a system to manage a school, my aim is to finish this bootcamp with a working school management system.
@@ -48,6 +51,7 @@ Using TTY prompt germ User will have different options to chose one among them t
 ![Image of Menu options](docs/Menu_opt.png)
 
 ## Diagram
+![Image of Flowchat](docs/Diagram.png)
 
 ## Implentation Plan
 
