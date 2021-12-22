@@ -32,9 +32,8 @@ etc
 
 This feature user need to type "add" command and will be asked to give a name for new file / directory then the app will handle the rest.
 
-![Image of welcome page](docs/Add_file.png)
+_![Image of welcome page](docs/Add_file.png)
 
-![](image/README/1640137626141.png)
 
 ### View a file
 
