@@ -32,9 +32,27 @@ etc
 
 This feature user need to type "add" command and will be asked to give a name for new file / directory then the app will handle the rest.
 
-_![Image of welcome page](docs/Add_file.png)
+![Image of welcome page](docs/Add_file.png)
 
 
 ### View a file
 
-This feature user need to type "add" command and will be asked to give a name for new file / directory then the app will handle the rest
+This feature user will type any file number from the list Then app will load that file and display its contents
+
+![Image of Add another file](docs/View_Records_file.png)
+
+### File content manipulation
+
+Using TTY prompt germ User will have different options to chose one among them then app will do the action. You can add more contents, view content, Edit content and you can go back and load another file to manipulate.
+
+![Image of Menu options](docs/Menu_opt.png)
+
+## Diagram
+
+## Implentation Plan
+
+To track the implementation of each feature, I used trello.
+
+![Image of a Trello Board](docs/Trello_Board.png)
+
+
